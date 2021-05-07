@@ -84,7 +84,7 @@
     </h2>
     
     <table>
-        <form>
+        <form id="form">
         <tr>
             <td>Name:</td>
             <td><input type="text" size="25" name="name"></td>
@@ -98,7 +98,7 @@
         <tr>
             <td>Favorite Drink:</td>
             <td>
-                <select name="fav_drink:">
+                <select name="fav_drink">
                 <option>Chocolato Milk</option>
                 <option>Coffee</option>
                 <option>Tea</option>
@@ -127,6 +127,12 @@
     </table>
     <br>
     <div id="order">
+        <h3>Sucess!</h3> Order Overview.
+        <br>Name: <span id="name"></span>
+        <br>Address: <span id="address"></span>
+        <br>drink: <span id="drink"></span>
+        <br>Quantity: <span id="quantity"></span>
+
     </div>
     </form>
 </section>
@@ -135,15 +141,13 @@
 
 <script>
     function placeOrder() {
-        var orderForm = document.getElementById("form")
-        results = "<h3>Sucess!</h3> Order Overview.";
-        results += "<br>Name:" + orderForm.elements["name"].value;
-        results += "<br>Address:" + orderForm.elements["address"].value;
-        results += "<br>drink:" + orderForm.elements["fav_drink"].value;
-        results += "<br>Quantity:" + orderForm.elements["quantity"].value;
-        var orderResults = document.getElementById("order");
-        orderResults.style.display = "block";
-        orderResults.innerHTML = results;
+        var orderForm = document.getElementById("form");
+
+        document.getElementById ("name").innerText = orderForm.elements["name"].value;
+        document.getElementById ("address").innerText = orderForm.elements["address"].value;
+        document.getElementById ("drink").innerText = orderForm.elements["fav_drink"].value;
+        document.getElementById ("quantity").innerText = orderForm.elements["quantity"].value;
+        document.getElementById ("order").style.display = "block"
     }
 
 </script>
